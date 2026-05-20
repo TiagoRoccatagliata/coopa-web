@@ -37,8 +37,6 @@
   }
 
   // ---------- Smooth scroll with nav offset ----------
-  // CSS scroll-padding-top handles this for native anchors, but we intercept
-  // to also close the mobile nav and avoid jumps when the URL hash changes.
   document.querySelectorAll('a[href^="#"]').forEach((link) => {
     link.addEventListener('click', (e) => {
       const href = link.getAttribute('href');
@@ -93,6 +91,113 @@
       btn.setAttribute('aria-expanded', String(!open));
     });
   });
+
+  // ---------- Modules carousel ----------
+  const carousel = document.getElementById('modulesCarousel');
+  if (carousel) {
+    const track = carousel.querySelector('#carouselTrack');
+    const slides = Array.from(track.querySelectorAll('.carousel-slide'));
+    const dotsHost = carousel.querySelector('#carouselDots');
+    const btns = carousel.querySelectorAll('[data-dir]');
+    let idx = 0;
+    let timer = null;
+    const AUTOPLAY_MS = 5000;
+
+    const dots = slides.map((_, i) => {
+      const d = document.createElement('button');
+      d.type = 'button';
+      d.className = 'carousel-dot';
+      d.setAttribute('role', 'tab');
+      d.setAttribute('aria-label', `Ir al módulo ${i + 1}`);
+      d.addEventListener('click', () => go(i, true));
+      dotsHost.appendChild(d);
+      return d;
+    });
+
+    const go = (n, userInitiated) => {
+      idx = (n + slides.length) % slides.length;
+      track.style.transform = `translateX(-${idx * 100}%)`;
+      dots.forEach((d, i) => d.setAttribute('aria-selected', String(i === idx)));
+      if (userInitiated) restart();
+    };
+
+    const restart = () => {
+      if (timer) clearInterval(timer);
+      if (prefersReducedMotion) return;
+      timer = setInterval(() => go(idx + 1, false), AUTOPLAY_MS);
+    };
+
+    btns.forEach((b) => {
+      b.addEventListener('click', () => {
+        const dir = Number(b.dataset.dir) || 1;
+        go(idx + dir, true);
+      });
+    });
+
+    // Pause on hover / focus
+    carousel.addEventListener('mouseenter', () => timer && clearInterval(timer));
+    carousel.addEventListener('mouseleave', restart);
+    carousel.addEventListener('focusin', () => timer && clearInterval(timer));
+    carousel.addEventListener('focusout', restart);
+
+    // Basic swipe support
+    let startX = null;
+    track.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; }, { passive: true });
+    track.addEventListener('touchend', (e) => {
+      if (startX == null) return;
+      const dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 40) go(idx + (dx < 0 ? 1 : -1), true);
+      startX = null;
+    });
+
+    go(0, false);
+    restart();
+  }
+
+  // ---------- Contact form ----------
+  const form = document.getElementById('contactForm');
+  if (form) {
+    const feedback = form.querySelector('#formFeedback');
+    form.addEventListener('submit', async (e) => {
+      // Honeypot check
+      const hp = form.querySelector('input[name="_honey"]');
+      if (hp && hp.value) { e.preventDefault(); return; }
+
+      if (!form.checkValidity()) {
+        e.preventDefault();
+        feedback.textContent = 'Revisá los campos marcados, por favor.';
+        feedback.classList.add('is-error');
+        form.reportValidity();
+        return;
+      }
+
+      // Submit via fetch so we can stay on the page
+      e.preventDefault();
+      feedback.classList.remove('is-error');
+      feedback.textContent = 'Enviando…';
+      const submitBtn = form.querySelector('button[type="submit"]');
+      submitBtn.disabled = true;
+
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { Accept: 'application/json' },
+        });
+        if (res.ok) {
+          form.reset();
+          feedback.textContent = '¡Gracias! Te respondemos en menos de 24 hs.';
+        } else {
+          throw new Error('bad status');
+        }
+      } catch (err) {
+        feedback.textContent = 'No pudimos enviar el mensaje. Probá de nuevo o escribinos a tiago.roccatagliata@agrosistemas.com.ar';
+        feedback.classList.add('is-error');
+      } finally {
+        submitBtn.disabled = false;
+      }
+    });
+  }
 
   // ---------- Reveal on scroll ----------
   const revealEls = document.querySelectorAll('.reveal');
