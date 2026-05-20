@@ -117,6 +117,7 @@
     const go = (n, userInitiated) => {
       idx = (n + slides.length) % slides.length;
       track.style.transform = `translateX(-${idx * 100}%)`;
+      slides.forEach((s, i) => s.toggleAttribute('aria-current', i === idx));
       dots.forEach((d, i) => d.setAttribute('aria-selected', String(i === idx)));
       if (userInitiated) restart();
     };
@@ -195,6 +196,80 @@
         feedback.classList.add('is-error');
       } finally {
         submitBtn.disabled = false;
+      }
+    });
+  }
+
+  // ---------- Cookie consent ----------
+  // Storage contract: localStorage["coopa.cookieConsent.v1"] = JSON {
+  //   essential: true, analytics: bool, marketing: bool,
+  //   decidedAt: ISO string, version: 1
+  // }
+  // Future analytics integrations should listen for the "coopa:consent"
+  // CustomEvent or read the same key before loading any tracking script.
+  const CONSENT_KEY = 'coopa.cookieConsent.v1';
+  const banner = document.getElementById('cookieBanner');
+  if (banner) {
+    const stored = (() => {
+      try { return JSON.parse(localStorage.getItem(CONSENT_KEY) || 'null'); }
+      catch { return null; }
+    })();
+
+    const saveConsent = (consent) => {
+      const payload = {
+        essential: true,
+        analytics: !!consent.analytics,
+        marketing: !!consent.marketing,
+        decidedAt: new Date().toISOString(),
+        version: 1,
+      };
+      try { localStorage.setItem(CONSENT_KEY, JSON.stringify(payload)); } catch {}
+      window.dispatchEvent(new CustomEvent('coopa:consent', { detail: payload }));
+      banner.classList.remove('is-visible');
+      setTimeout(() => { banner.hidden = true; }, 240);
+    };
+
+    if (!stored) {
+      setTimeout(() => {
+        banner.hidden = false;
+        requestAnimationFrame(() => banner.classList.add('is-visible'));
+      }, 600);
+    }
+
+    const acceptBtn = document.getElementById('cookieAccept');
+    const rejectBtn = document.getElementById('cookieReject');
+    if (acceptBtn) acceptBtn.addEventListener('click', () => saveConsent({ analytics: true, marketing: true }));
+    if (rejectBtn) rejectBtn.addEventListener('click', () => saveConsent({ analytics: false, marketing: false }));
+  }
+
+  // ---------- Cookie preferences page (cookies.html#preferencias) ----------
+  const prefsForm = document.getElementById('cookiePreferences');
+  if (prefsForm) {
+    const stored = (() => {
+      try { return JSON.parse(localStorage.getItem(CONSENT_KEY) || 'null'); }
+      catch { return null; }
+    })();
+    const analyticsToggle = prefsForm.querySelector('input[name="analytics"]');
+    const marketingToggle = prefsForm.querySelector('input[name="marketing"]');
+    if (stored) {
+      if (analyticsToggle) analyticsToggle.checked = !!stored.analytics;
+      if (marketingToggle) marketingToggle.checked = !!stored.marketing;
+    }
+    prefsForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const payload = {
+        essential: true,
+        analytics: !!analyticsToggle?.checked,
+        marketing: !!marketingToggle?.checked,
+        decidedAt: new Date().toISOString(),
+        version: 1,
+      };
+      try { localStorage.setItem(CONSENT_KEY, JSON.stringify(payload)); } catch {}
+      window.dispatchEvent(new CustomEvent('coopa:consent', { detail: payload }));
+      const feedback = prefsForm.querySelector('.prefs-feedback');
+      if (feedback) {
+        feedback.textContent = 'Preferencias guardadas.';
+        feedback.classList.add('is-success');
       }
     });
   }
