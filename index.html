@@ -2,214 +2,734 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/coopaFav.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="COOPA — La plataforma que transforma la administración de tu Cooperadora Escolar. Gestión contable, PIA automático, libros legales y más." />
-    <link rel="stylesheet" href="/src/styles/style.css">
-    <title>COOPA — Gestión Simple para Cooperadoras Escolares</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#5B7052" />
+    <meta name="description" content="Coopa centraliza comprobantes, tesorería, ventas y reportes oficiales para Cooperadoras Escolares de la Provincia de Buenos Aires. La PIA y los Libros se generan solos." />
+    <meta property="og:title" content="Coopa — Gestión cooperadora" />
+    <meta property="og:description" content="Tu cooperadora, ordenada de una vez. Comprobantes, tesorería y reportes oficiales en una sola plataforma." />
+    <meta property="og:type" content="website" />
+    <link rel="icon" type="image/svg+xml" href="src/assets/logo.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Coopa — Gestión cooperadora</title>
   </head>
   <body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
-    <nav>
-      <div class="nav-container">
-        <div class="logo-wrapper">
-          <img class="logo" src="./src/assets/logo.svg" alt="COOPA logo">
-          <a class="logo-text" href="#">Coopa</a>
-        </div>
+    <!-- ============ NAV ============ -->
+    <header class="site-nav" id="siteNav" aria-label="Navegación principal">
+      <div class="container nav-inner">
+        <a href="#" class="brand" aria-label="Coopa, inicio">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 1500 1500" width="32" height="32" focusable="false">
+              <path d="M705.3 1079c-27.9-64.3-69.4-189.5-28.7-323.1 66.9-219.3 329.3-376.5 645-356.1 41.9 267.5-61.4 518.1-256.1 629.9-131.1 75.3-267 66.6-331.4 57.6 65.9-49.9 139.9-114.1 213.8-195.3 114.1-125.4 190.3-249.8 240.7-349-72.4 100.9-159.5 210-263.4 321.5-75 80.5-149.1 151.7-219.9 214.5z" fill="currentColor"/>
+              <path d="M621.1 1086c-49.3 14.9-144.1 34.5-238.1-6.6C228.7 1011.9 136.4 807.1 178.2 578.5c198.7-7.8 372.7 88.9 437.6 240.5 43.8 102.1 25.8 200.4 13.8 246.6-30.8-52.3-71.3-111.7-124.3-172.6-81.7-93.9-166-160-234.1-205.3 67.5 61.4 139.7 134.2 212.2 219.6 52.3 61.6 97.9 121.7 137.7 178.7z" fill="currentColor"/>
+            </svg>
+          </span>
+          <span class="brand-text">
+            <span class="brand-name">Coopa</span>
+            <span class="brand-tag">Gestión cooperadora</span>
+          </span>
+        </a>
 
-        <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
-        <label for="nav-toggle" class="nav-toggle-label">
-          <span></span>
-        </label>
+        <button class="nav-toggle" id="navToggle" aria-controls="primaryNav" aria-expanded="false" aria-label="Abrir menú">
+          <span></span><span></span><span></span>
+        </button>
 
-        <ul class="nav-links">
-          <li><a href="#features">Funcionalidades</a></li>
-          <li><a href="#como-funciona">Cómo funciona</a></li>
-          <li><a href="#para-quien">Para quién</a></li>
-          <li><a target="_blank" class="btn-2" href="https://app.coopa.com.ar/">Ir a la App</a></li>
-        </ul>
+        <nav id="primaryNav" class="nav-links" aria-label="Secciones">
+          <a href="#producto">Producto</a>
+          <a href="#modulos">Módulos</a>
+          <a href="#nosotros">Quiénes somos</a>
+          <a href="#precios">Precios</a>
+          <a href="#contacto">Contacto</a>
+          <a href="#contacto" class="btn btn-primary btn-sm nav-cta">Pedir demo</a>
+        </nav>
       </div>
-    </nav>
+    </header>
 
-    <!-- Hero -->
-    <section class="hero">
-      <div class="container">
-        <span class="badge">Plataforma de gestión para Cooperadoras</span>
-        <h1>Gestión Simple para Cooperadoras Escolares</h1>
-        <p class="hero-subtitle">Dejá de pelear con planillas de Excel, papeles sueltos y cálculos manuales. COOPA centraliza toda la gestión contable y administrativa de tu Asociación Cooperadora en un solo lugar.</p>
-        <div class="hero-actions">
-          <a href="https://app.coopa.com.ar/" target="_blank" class="btn">Crear cuenta gratis</a>
-          <a href="#como-funciona" class="btn-outline">Ver cómo funciona</a>
-        </div>
-      </div>
-    </section>
+    <main id="contenido">
+      <!-- ============ HERO ============ -->
+      <section class="hero" id="producto" aria-labelledby="heroTitle">
+        <div class="hero-bg" aria-hidden="true"></div>
+        <div class="container hero-grid">
+          <div class="hero-copy reveal">
+            <span class="eyebrow">Para cooperadoras escolares</span>
+            <h1 id="heroTitle">Tu cooperadora, <em>ordenada de una vez.</em></h1>
+            <p class="lede">
+              Coopa centraliza comprobantes, tesorería, ventas y reportes oficiales.
+              Cargás una vez y la PIA, los Libros y la rendición se arman solas.
+            </p>
+            <div class="hero-actions">
+              <a href="#contacto" class="btn btn-primary">Pedir demo</a>
+              <a href="#como-funciona" class="btn btn-ghost">
+                Ver cómo funciona
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </a>
+            </div>
+            <ul class="hero-trust" aria-label="Garantías clave">
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg>
+                Sin instalar nada
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg>
+                Ejercicio 01/04 — 31/03
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg>
+                Reportes oficiales PBA
+              </li>
+            </ul>
+          </div>
 
-    <!-- Problem / Solution -->
-    <section class="problem-solution">
-      <div class="container">
-        <div class="ps-grid">
-          <div class="ps-card ps-problem">
-            <h2>El problema</h2>
-            <p>Las Cooperadoras Escolares de la Provincia de Buenos Aires manejan fondos públicos con herramientas del siglo pasado. Planillas dispersas, PIA armados a mano, libros legales completados con birome y horas perdidas intentando que los números cierren. Un error en el PIA puede significar observaciones de inspección y semanas de correcciones.</p>
-          </div>
-          <div class="ps-card ps-solution">
-            <h2>La solución</h2>
-            <p>COOPA automatiza lo tedioso para que te enfoques en lo importante: mejorar la escuela.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+          <!-- Hero mock: panel de control -->
+          <div class="hero-mock reveal" aria-hidden="true">
+            <div class="mock-card">
+              <div class="mock-head">
+                <div>
+                  <span class="eyebrow eyebrow-sm">Panel de control</span>
+                  <h3 class="mock-title">Mayo 2026</h3>
+                </div>
+                <span class="mock-pill ok">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg>
+                  Ecuación PIA validada
+                </span>
+              </div>
 
-    <!-- Features -->
-    <section class="features" id="features">
-      <div class="container">
-        <h2 class="section-title">Funcionalidades</h2>
-        <p class="section-subtitle">Todo lo que necesitás para administrar tu Cooperadora, en un solo lugar.</p>
-        <div class="features-grid">
-          <div class="feature-card">
-            <div class="feature-icon">📋</div>
-            <h3>Carga centralizada de comprobantes</h3>
-            <p>Registrá cada ingreso y egreso una sola vez. COOPA genera automáticamente los movimientos de caja, banco y cuentas corrientes. Sin duplicar datos, sin errores de tipeo.</p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon">📊</div>
-            <h3>PIA automático</h3>
-            <p>El Plan Integral de Actividades se genera solo a partir de los comprobantes cargados. Siempre actualizado, siempre cuadrado. Cumplí con la normativa sin esfuerzo.</p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon">📕</div>
-            <h3>Libros Legales al instante</h3>
-            <p>Libro de Caja, Libro de Banco, Libro de Actas — generados en PDF listos para presentar. Adiós a las horas de transcripción manual.</p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon">💰</div>
-            <h3>Control de Tesorería en tiempo real</h3>
-            <p>Saldo de caja chica, movimientos bancarios, cheques emitidos y en cartera. Todo visible en un panel claro y simple.</p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon">🤝</div>
-            <h3>Cuentas Corrientes de proveedores</h3>
-            <p>Llevá el registro de deudas y pagos a cada proveedor sin planillas aparte.</p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon">👥</div>
-            <h3>Gestión de Socios y Cuotas</h3>
-            <p>Registrá socios, definí cuotas y hacé seguimiento de cobranza desde la misma plataforma.</p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon">📄</div>
-            <h3>Reportes y exportación</h3>
-            <p>Exportá a PDF y Excel todo lo que necesites para inspecciones, asambleas o rendiciones.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+              <div class="mock-kpis">
+                <div class="kpi">
+                  <span class="kpi-label">Caja chica</span>
+                  <span class="kpi-value">$ 124.500</span>
+                  <span class="kpi-trend up">+3,2%</span>
+                </div>
+                <div class="kpi">
+                  <span class="kpi-label">Banco</span>
+                  <span class="kpi-value">$ 1.847.200</span>
+                  <span class="kpi-trend up">+8,1%</span>
+                </div>
+                <div class="kpi kpi-strong">
+                  <span class="kpi-label">Saldo próximo</span>
+                  <span class="kpi-value">$ 1.971.700</span>
+                  <span class="kpi-foot">Banco + Caja chica</span>
+                </div>
+              </div>
 
-    <!-- Pensado para Cooperadoras -->
-    <section class="pensado">
-      <div class="container">
-        <h2 class="section-title">Pensado para Cooperadoras</h2>
-        <ul class="pensado-list">
-          <li class="pensado-item">
-            <strong>Multi-cooperadora:</strong> Cada cooperadora accede solo a sus datos. Privacidad total.
-          </li>
-          <li class="pensado-item">
-            <strong>Ejercicio económico real:</strong> Trabaja con el período abril–marzo que usan las cooperadoras, no enero–diciembre.
-          </li>
-          <li class="pensado-item">
-            <strong>Categorías PIA integradas:</strong> Las categorías del Plan Integral ya están cargadas. Solo elegí y avanzá.
-          </li>
-          <li class="pensado-item">
-            <strong>Roles y permisos:</strong> Administrador, tesorería, operador, auditor — cada uno ve y hace solo lo que le corresponde.
-          </li>
-          <li class="pensado-item">
-            <strong>Desde cualquier dispositivo:</strong> Funciona en el navegador, sin instalar nada. Desde la PC de la escuela, tu notebook o el celular.
-          </li>
-        </ul>
-      </div>
-    </section>
+              <div class="mock-list">
+                <div class="mock-row">
+                  <span class="dot dot-in"></span>
+                  <div class="mock-row-text">
+                    <strong>Cuota social — Mayo</strong>
+                    <small>147 socios · cobrado</small>
+                  </div>
+                  <span class="mock-amount in">+ $ 73.500</span>
+                </div>
+                <div class="mock-row">
+                  <span class="dot dot-out"></span>
+                  <div class="mock-row-text">
+                    <strong>Insumos panificados</strong>
+                    <small>F. C 0001-00012 · Molino Don José</small>
+                  </div>
+                  <span class="mock-amount out">− $ 18.200</span>
+                </div>
+                <div class="mock-row">
+                  <span class="dot dot-in"></span>
+                  <div class="mock-row-text">
+                    <strong>Venta huerta — Feria</strong>
+                    <small>Caja chica</small>
+                  </div>
+                  <span class="mock-amount in">+ $ 12.840</span>
+                </div>
+              </div>
+            </div>
 
-    <!-- Cómo funciona -->
-    <section class="como-funciona" id="como-funciona">
-      <div class="container">
-        <h2 class="section-title">¿Cómo funciona?</h2>
-        <div class="steps-grid">
-          <div class="step">
-            <div class="step-number">1</div>
-            <h3>Registrá tu Cooperadora</h3>
-            <p>Creá tu cuenta en minutos.</p>
-          </div>
-          <div class="step">
-            <div class="step-number">2</div>
-            <h3>Configurá tu ejercicio</h3>
-            <p>Cargá saldos iniciales y entornos formativos.</p>
-          </div>
-          <div class="step">
-            <div class="step-number">3</div>
-            <h3>Cargá comprobantes</h3>
-            <p>Cada factura, recibo o ticket en un formulario simple.</p>
-          </div>
-          <div class="step">
-            <div class="step-number">4</div>
-            <h3>Listo</h3>
-            <p>COOPA genera PIA, libros y reportes automáticamente.</p>
+            <div class="mock-floating">
+              <div class="mock-mini">
+                <span class="eyebrow eyebrow-sm">PIA</span>
+                <strong>Categoría 4.1 actualizada</strong>
+                <small>al cargar el comprobante</small>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Para quién es COOPA -->
-    <section class="para-quien" id="para-quien">
-      <div class="container">
-        <h2 class="section-title">¿Para quién es COOPA?</h2>
-        <div class="audience-grid">
-          <div class="audience-card">
-            <p>Tesoreros y tesoreras que quieren dejar de sufrir con los números.</p>
-          </div>
-          <div class="audience-card">
-            <p>Comisiones directivas que necesitan tener todo en orden para las inspecciones.</p>
-          </div>
-          <div class="audience-card">
-            <p>Cooperadoras que manejan kiosco, comedor o producción escolar.</p>
-          </div>
-          <div class="audience-card">
-            <p>Cualquier Cooperadora Escolar de la Provincia de Buenos Aires que quiera profesionalizar su gestión.</p>
+      <!-- ============ PROBLEMA → SOLUCIÓN ============ -->
+      <section class="band band-problem reveal" aria-labelledby="problemaTitulo">
+        <div class="container">
+          <span class="eyebrow">El día a día</span>
+          <h2 id="problemaTitulo" class="band-title">De la planilla suelta al control real.</h2>
+
+          <ul class="problem-grid">
+            <li class="problem-card">
+              <span class="problem-icon" aria-hidden="true">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13l3 3 5-6"/></svg>
+              </span>
+              <h3>Excel que no cierra</h3>
+              <p>Versiones encimadas, fórmulas rotas y saldos que no coinciden con el banco.</p>
+            </li>
+            <li class="problem-card">
+              <span class="problem-icon" aria-hidden="true">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18"/><path d="M9 4v16"/></svg>
+              </span>
+              <h3>Doble carga manual</h3>
+              <p>El mismo comprobante, anotado en tres planillas distintas y un cuaderno.</p>
+            </li>
+            <li class="problem-card">
+              <span class="problem-icon" aria-hidden="true">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v3l2 2"/></svg>
+              </span>
+              <h3>Rendición a mano cada mes</h3>
+              <p>Horas para armar la PIA y los Libros antes de cada inspección o asamblea.</p>
+            </li>
+          </ul>
+
+          <p class="band-closer">
+            <em>Coopa unifica todo en una sola carga.</em>
+          </p>
+        </div>
+      </section>
+
+      <!-- ============ CÓMO FUNCIONA ============ -->
+      <section class="section" id="como-funciona" aria-labelledby="comoTitulo">
+        <div class="container">
+          <header class="section-head reveal">
+            <span class="eyebrow">Cómo funciona</span>
+            <h2 id="comoTitulo">Tres pasos. Cero planillas paralelas.</h2>
+            <p class="section-sub">Pensado para que la tesorera de la cooperadora se sienta en casa, sin saber contabilidad.</p>
+          </header>
+
+          <ol class="steps">
+            <li class="step reveal">
+              <span class="step-num">01</span>
+              <h3>Cargás un comprobante con su categoría PIA</h3>
+              <p>Una factura, un recibo, un ticket. Coopa ya tiene el plan PIA cargado y te sugiere la categoría correcta.</p>
+            </li>
+            <li class="step reveal">
+              <span class="step-num">02</span>
+              <h3>Coopa actualiza caja, banco, cuentas y stock</h3>
+              <p>El mismo movimiento impacta en tesorería, en la cuenta corriente del proveedor y en el stock si corresponde.</p>
+            </li>
+            <li class="step reveal">
+              <span class="step-num">03</span>
+              <h3>La PIA, los Libros y los reportes se generan solos</h3>
+              <p>A fin de mes no armás nada: descargás. Listo para llevar a la inspección o a la comisión directiva.</p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- ============ MÓDULOS ============ -->
+      <section class="section section-soft" id="modulos" aria-labelledby="modulosTitulo">
+        <div class="container">
+          <header class="section-head reveal">
+            <span class="eyebrow">Módulos</span>
+            <h2 id="modulosTitulo">Todo lo que tu cooperadora necesita.</h2>
+            <p class="section-sub">Nueve módulos integrados. Cargás una vez, los datos viajan donde tienen que ir.</p>
+          </header>
+
+          <div class="modules-grid">
+            <article class="module-card reveal">
+              <span class="module-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 2H8a2 2 0 0 0-2 2v18l3-2 3 2 3-2 3 2V4a2 2 0 0 0-2-2z"/><path d="M9 8h6M9 12h6M9 16h4"/></svg>
+              </span>
+              <h3>Comprobantes</h3>
+              <p>El corazón del sistema. Cada factura o recibo se carga una vez con su categoría PIA y dispara todo.</p>
+              <a href="#contacto" class="module-link">Ver más
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </a>
+            </article>
+
+            <article class="module-card reveal">
+              <span class="module-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12V8a2 2 0 0 0-2-2H5a2 2 0 0 1 0-4h14"/><path d="M3 6v12a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-3"/><path d="M18 12a2 2 0 0 0 0 4h4v-4z"/></svg>
+              </span>
+              <h3>Tesorería</h3>
+              <p>Caja chica, banco, cheques, pagos y depósitos pendientes con conciliación visual.</p>
+              <a href="#contacto" class="module-link">Ver más
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </a>
+            </article>
+
+            <article class="module-card reveal">
+              <span class="module-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18l-1.6 12.2a2 2 0 0 1-2 1.8H6.6a2 2 0 0 1-2-1.8z"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+              </span>
+              <h3>Ventas</h3>
+              <p>Ideal para escuelas que producen: huerta, panificados, lácteos. Una venta = ingreso + comprobante.</p>
+              <a href="#contacto" class="module-link">Ver más
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </a>
+            </article>
+
+            <article class="module-card reveal">
+              <span class="module-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 22V9l9 4V9l9 4v9z"/><path d="M7 22v-4M11 22v-4M15 22v-4M19 22v-4"/></svg>
+              </span>
+              <h3>Producción</h3>
+              <p>Productos, recetas, stock, órdenes de producción, costeo y módulo Tambero para escuelas agrarias.</p>
+              <a href="#contacto" class="module-link">Ver más
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </a>
+            </article>
+
+            <article class="module-card reveal">
+              <span class="module-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </span>
+              <h3>Cuentas corrientes</h3>
+              <p>Proveedores, clientes y comisionistas con saldos siempre al día y vencimientos a la vista.</p>
+              <a href="#contacto" class="module-link">Ver más
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </a>
+            </article>
+
+            <article class="module-card reveal">
+              <span class="module-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><circle cx="9" cy="12" r="2.5"/><path d="M14 10h5M14 14h5"/></svg>
+              </span>
+              <h3>Socios y cuotas</h3>
+              <p>Padrón al día, emisión de cuotas sociales y seguimiento de cobranza desde la misma plataforma.</p>
+              <a href="#contacto" class="module-link">Ver más
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </a>
+            </article>
+
+            <article class="module-card reveal">
+              <span class="module-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"/><path d="M9 7h7M9 11h7"/></svg>
+              </span>
+              <h3>Contabilidad</h3>
+              <p>Plan de cuentas, asientos automáticos, bienes de uso, amortizaciones, sueldos, cierre y ajuste por inflación.</p>
+              <a href="#contacto" class="module-link">Ver más
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </a>
+            </article>
+
+            <article class="module-card reveal">
+              <span class="module-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h7M9 17h5"/></svg>
+              </span>
+              <h3>Reportes oficiales</h3>
+              <p>PIA, Libros Legales, Partes, conciliación AFIP y listados operativos listos para imprimir.</p>
+              <a href="#contacto" class="module-link">Ver más
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </a>
+            </article>
+
+            <article class="module-card reveal">
+              <span class="module-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11 17l2 2a1.5 1.5 0 0 0 2.1-2.1"/><path d="M14 14l2.5 2.5a1.5 1.5 0 0 0 2.1-2.1l-3.9-3.9a3 3 0 0 0-4.2 0l-.4.4a1.5 1.5 0 0 1-2.1-2.1l2.6-2.6a5 5 0 0 1 6-1l.5.3a2 2 0 0 0 1.6.2l2.4-.7"/><path d="M3 4h6"/><path d="M3 4l-1 9 6 6a1.5 1.5 0 0 0 2.1-2.1"/></svg>
+              </span>
+              <h3>Acuerdos</h3>
+              <p>Convenios y entregas a terceros con seguimiento claro del compromiso y la rendición.</p>
+              <a href="#contacto" class="module-link">Ver más
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </a>
+            </article>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- CTA Final -->
-    <section class="cta-final">
-      <div class="container">
-        <h2>Dejá de improvisar. Empezá a gestionar.</h2>
-        <p>Probá COOPA gratis y descubrí lo que es administrar tu Cooperadora sin estrés.</p>
-        <div class="cta-actions">
-          <a href="https://app.coopa.com.ar/" target="_blank" class="btn btn-white">Crear cuenta gratis</a>
-          <a href="#como-funciona" class="btn-outline btn-outline-white">Ver demo</a>
+      <!-- ============ ROLES (TABS) ============ -->
+      <section class="section" id="roles" aria-labelledby="rolesTitulo">
+        <div class="container">
+          <header class="section-head reveal">
+            <span class="eyebrow">Para cada rol</span>
+            <h2 id="rolesTitulo">A cada persona, su pantalla.</h2>
+            <p class="section-sub">Coopa habla el idioma de cada rol de la cooperadora — de la tesorera a la dirección.</p>
+          </header>
+
+          <div class="roles reveal">
+            <div class="roles-tabs" role="tablist" aria-label="Roles de la cooperadora">
+              <button class="role-tab" role="tab" id="tab-tesoreria" aria-controls="panel-tesoreria" aria-selected="true" tabindex="0">Tesorería</button>
+              <button class="role-tab" role="tab" id="tab-ventas" aria-controls="panel-ventas" aria-selected="false" tabindex="-1">Ventas</button>
+              <button class="role-tab" role="tab" id="tab-contador" aria-controls="panel-contador" aria-selected="false" tabindex="-1">Contador</button>
+              <button class="role-tab" role="tab" id="tab-direccion" aria-controls="panel-direccion" aria-selected="false" tabindex="-1">Dirección</button>
+            </div>
+
+            <div class="role-panels">
+              <div class="role-panel is-active" role="tabpanel" id="panel-tesoreria" aria-labelledby="tab-tesoreria">
+                <div class="role-copy">
+                  <h3>Silvina, tesorera. Y respira tranquila.</h3>
+                  <p class="role-pain"><strong>Hoy:</strong> tres planillas, un cuaderno y un grupo de WhatsApp donde se le pasa todo a contar.</p>
+                  <p class="role-fix"><strong>Con Coopa:</strong> carga el comprobante, elige la categoría PIA y listo. La caja, el banco y la cuenta del proveedor se actualizan en el mismo movimiento.</p>
+                  <ul class="role-bullets">
+                    <li>Conciliación visual con el resumen del banco.</li>
+                    <li>Cheques en cartera y emitidos siempre a la vista.</li>
+                    <li>Cierre de mes en minutos, no en tardes.</li>
+                  </ul>
+                </div>
+                <div class="role-shot" aria-hidden="true">
+                  <div class="shot shot-tesoreria">
+                    <div class="shot-head">
+                      <span class="eyebrow eyebrow-sm">Conciliación banco</span>
+                      <span class="shot-tag ok">3 de 3 cuadrados</span>
+                    </div>
+                    <div class="shot-row"><span>Depósito 02/05</span><span class="amt in">+ $ 240.000</span><span class="ok">✓</span></div>
+                    <div class="shot-row"><span>Cheque 0014 — librado</span><span class="amt out">− $ 84.500</span><span class="ok">✓</span></div>
+                    <div class="shot-row"><span>Comisión bancaria</span><span class="amt out">− $ 1.250</span><span class="ok">✓</span></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="role-panel" role="tabpanel" id="panel-ventas" aria-labelledby="tab-ventas" hidden>
+                <div class="role-copy">
+                  <h3>Fabián, operador de ventas. La feria sin papelitos.</h3>
+                  <p class="role-pain"><strong>Hoy:</strong> anota ventas en una libreta, pasa todo a Excel los domingos y reza para que cuadre.</p>
+                  <p class="role-fix"><strong>Con Coopa:</strong> carga la venta de la huerta o la panadería desde el celular y al mismo tiempo se descuenta el stock y se asienta el ingreso.</p>
+                  <ul class="role-bullets">
+                    <li>Catálogo con precios y unidades editable en un toque.</li>
+                    <li>Stock en tiempo real, alertas de mínimos.</li>
+                    <li>Cierre de caja diario imprimible.</li>
+                  </ul>
+                </div>
+                <div class="role-shot" aria-hidden="true">
+                  <div class="shot shot-ventas">
+                    <div class="shot-head">
+                      <span class="eyebrow eyebrow-sm">Feria sábado</span>
+                      <span class="shot-tag">12 ventas · 4 productos</span>
+                    </div>
+                    <div class="shot-row"><span>Pan campo · 18u</span><span class="amt in">+ $ 14.400</span></div>
+                    <div class="shot-row"><span>Verdura mixta · 6 cajas</span><span class="amt in">+ $ 21.000</span></div>
+                    <div class="shot-row"><span>Quesos frescos · 9u</span><span class="amt in">+ $ 38.700</span></div>
+                    <div class="shot-row total"><span>Total caja</span><span class="amt in">$ 74.100</span></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="role-panel" role="tabpanel" id="panel-contador" aria-labelledby="tab-contador" hidden>
+                <div class="role-copy">
+                  <h3>El contador que entra una vez y entiende todo.</h3>
+                  <p class="role-pain"><strong>Hoy:</strong> recibe carpetas con comprobantes en mano y arma asientos a contrarreloj.</p>
+                  <p class="role-fix"><strong>Con Coopa:</strong> los asientos están hechos. Solo audita, ajusta y cierra el ejercicio sin volver a tipear nada.</p>
+                  <ul class="role-bullets">
+                    <li>Plan de cuentas, libro diario y mayor con un clic.</li>
+                    <li>Bienes de uso, amortizaciones y ajuste por inflación incluidos.</li>
+                    <li>Multi-cooperadora: gestiona varias asociaciones sin mezclar datos.</li>
+                  </ul>
+                </div>
+                <div class="role-shot" aria-hidden="true">
+                  <div class="shot shot-contador">
+                    <div class="shot-head">
+                      <span class="eyebrow eyebrow-sm">Asiento automático</span>
+                      <span class="shot-tag ok">Generado</span>
+                    </div>
+                    <div class="shot-row mono"><span>1.1.01.02 Banco Pcia.</span><span class="amt in">240.000,00</span></div>
+                    <div class="shot-row mono"><span>4.1.01 Cuotas sociales</span><span class="amt out">240.000,00</span></div>
+                    <div class="shot-row foot"><span>Ref. comprobante #00187 — Mayo 2026</span></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="role-panel" role="tabpanel" id="panel-direccion" aria-labelledby="tab-direccion" hidden>
+                <div class="role-copy">
+                  <h3>Dirección y comisión: vista de pájaro.</h3>
+                  <p class="role-pain"><strong>Hoy:</strong> piden informes y esperan dos semanas para verlos en una hoja A4.</p>
+                  <p class="role-fix"><strong>Con Coopa:</strong> abren el panel y entienden en 30 segundos cómo está la cooperadora hoy, sin pedir nada a nadie.</p>
+                  <ul class="role-bullets">
+                    <li>Indicadores clave, ejecución por categoría PIA y proyección.</li>
+                    <li>Permisos por rol: cada quien ve lo suyo.</li>
+                    <li>Listo para mostrar en la próxima reunión de comisión.</li>
+                  </ul>
+                </div>
+                <div class="role-shot" aria-hidden="true">
+                  <div class="shot shot-direccion">
+                    <div class="shot-head">
+                      <span class="eyebrow eyebrow-sm">Ejecución PIA</span>
+                      <span class="shot-tag">Ejercicio 2025/26</span>
+                    </div>
+                    <div class="bar-row"><span>Mantenimiento</span><span class="bar"><i style="--w:78%"></i></span><span class="pct">78%</span></div>
+                    <div class="bar-row"><span>Equipamiento</span><span class="bar"><i style="--w:54%"></i></span><span class="pct">54%</span></div>
+                    <div class="bar-row"><span>Producción</span><span class="bar"><i style="--w:91%"></i></span><span class="pct">91%</span></div>
+                    <div class="bar-row"><span>Becas</span><span class="bar"><i style="--w:32%"></i></span><span class="pct">32%</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Footer -->
-    <footer>
-      <div class="container footer-inner">
+      <!-- ============ SOCIAL PROOF ============ -->
+      <section class="section section-soft" id="nosotros" aria-labelledby="proofTitulo">
+        <div class="container">
+          <header class="section-head reveal">
+            <span class="eyebrow">En producción</span>
+            <h2 id="proofTitulo">Quien ya lo está usando.</h2>
+          </header>
+
+          <figure class="quote reveal">
+            <svg class="quote-mark" width="48" height="48" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 7h4v4H8c0 2 1 3 3 3v3c-4 0-6-2-6-6V7zm10 0h4v4h-3c0 2 1 3 3 3v3c-4 0-6-2-6-6V7z"/></svg>
+            <blockquote>
+              <p>Antes le dedicábamos tres días enteros al cierre de cada mes y todavía nos pasaba que algo no cuadraba con el banco. Hoy cargamos el comprobante una sola vez y la PIA y los Libros salen solos. La inspección de marzo la pasamos sin transpirar.</p>
+            </blockquote>
+            <figcaption>
+              <strong>Comisión Directiva</strong>
+              <span>Asociación Cooperadora — Escuela Agraria Nicanor Ezeyza</span>
+            </figcaption>
+          </figure>
+
+          <p class="logos-label reveal">Próximas escuelas en sumarse</p>
+          <ul class="logos-grid reveal" aria-label="Cooperadoras incorporándose a Coopa">
+            <li>EEST N°2 — Las Flores</li>
+            <li>Coop. Esc. Florentino Ameghino</li>
+            <li>EES N°14 — Tandil</li>
+            <li>Agraria San Vicente</li>
+            <li>Coop. José Hernández</li>
+            <li>EEM N°7 — Olavarría</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ============ SEGURIDAD ============ -->
+      <section class="band band-secure reveal" aria-labelledby="seguridadTitulo">
+        <div class="container">
+          <h2 id="seguridadTitulo" class="band-title sr-only">Seguridad y cumplimiento</h2>
+          <ul class="secure-grid">
+            <li>
+              <span class="check" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg>
+              </span>
+              <div>
+                <strong>Multi-tenant aislado</strong>
+                <p>Cada cooperadora ve solo sus datos. Un mismo asesor puede gestionar varias sin mezclarlas.</p>
+              </div>
+            </li>
+            <li>
+              <span class="check" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg>
+              </span>
+              <div>
+                <strong>Backups diarios</strong>
+                <p>Tu información, respaldada todos los días con cifrado en tránsito y en reposo.</p>
+              </div>
+            </li>
+            <li>
+              <span class="check" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg>
+              </span>
+              <div>
+                <strong>Reportes según normativa PBA</strong>
+                <p>PIA, Libros Legales y Partes con el formato que pide la Provincia de Buenos Aires.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ============ PRECIOS ============ -->
+      <section class="section" id="precios" aria-labelledby="preciosTitulo">
+        <div class="container">
+          <header class="section-head reveal">
+            <span class="eyebrow">Precios</span>
+            <h2 id="preciosTitulo">Pensado para cooperadoras reales.</h2>
+            <p class="section-sub">Sin instalación, sin licencias por usuario. Pagás por mes y cancelás cuando quieras.</p>
+          </header>
+
+          <div class="pricing">
+            <article class="price-card reveal">
+              <h3>Esencial</h3>
+              <p class="price-tag"><span class="price-currency">$</span><span class="price-num">14.900</span><span class="price-per">/ mes</span></p>
+              <p class="price-blurb">Para cooperadoras chicas que recién ordenan su gestión.</p>
+              <ul class="price-list">
+                <li>Comprobantes y tesorería</li>
+                <li>Caja chica, banco y cheques</li>
+                <li>PIA y Libros Legales</li>
+                <li>Hasta 2 usuarios</li>
+                <li>Soporte por email</li>
+              </ul>
+              <a href="#contacto" class="btn btn-ghost btn-block">Empezar</a>
+            </article>
+
+            <article class="price-card price-feature reveal">
+              <span class="price-eyebrow">Más elegido</span>
+              <h3>Completo</h3>
+              <p class="price-tag"><span class="price-currency">$</span><span class="price-num">24.900</span><span class="price-per">/ mes</span></p>
+              <p class="price-blurb">Para cooperadoras que producen y venden, con más movimiento.</p>
+              <ul class="price-list">
+                <li>Todo lo del plan Esencial</li>
+                <li>Ventas, producción y stock</li>
+                <li>Cuentas corrientes y socios</li>
+                <li>Hasta 6 usuarios con roles</li>
+                <li>Soporte prioritario</li>
+              </ul>
+              <a href="#contacto" class="btn btn-primary btn-block">Pedir demo</a>
+            </article>
+
+            <article class="price-card reveal">
+              <h3>Institucional</h3>
+              <p class="price-tag price-tag-soft"><span class="price-num-alt">A medida</span></p>
+              <p class="price-blurb">Para escuelas grandes, agrarias completas y consejos escolares.</p>
+              <ul class="price-list">
+                <li>Todo lo del plan Completo</li>
+                <li>Contabilidad y cierre de ejercicio</li>
+                <li>Multi-cooperadora con consolidado</li>
+                <li>Usuarios ilimitados</li>
+                <li>Onboarding y capacitación</li>
+              </ul>
+              <a href="#contacto" class="btn btn-ghost btn-block">Hablar con ventas</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ FAQ ============ -->
+      <section class="section section-soft" aria-labelledby="faqTitulo">
+        <div class="container container-narrow">
+          <header class="section-head reveal">
+            <span class="eyebrow">Preguntas frecuentes</span>
+            <h2 id="faqTitulo">Lo que nos preguntan tesoreras y comisiones.</h2>
+          </header>
+
+          <ul class="faq reveal">
+            <li class="faq-item">
+              <button class="faq-q" aria-expanded="false" aria-controls="faq1">
+                <span>¿Necesito instalar algo en la PC de la escuela?</span>
+                <span class="faq-icon" aria-hidden="true"></span>
+              </button>
+              <div class="faq-a" id="faq1" role="region">
+                <div class="faq-a-inner">
+                  <p>No. Coopa funciona en el navegador desde cualquier dispositivo: la PC de la dirección, una notebook personal o el celular en la feria. Solo entrás con usuario y contraseña.</p>
+                </div>
+              </div>
+            </li>
+            <li class="faq-item">
+              <button class="faq-q" aria-expanded="false" aria-controls="faq2">
+                <span>¿Sirve si ya estoy llevando todo en Excel?</span>
+                <span class="faq-icon" aria-hidden="true"></span>
+              </button>
+              <div class="faq-a" id="faq2" role="region">
+                <div class="faq-a-inner">
+                  <p>Sí, y es el caso más común. Te ayudamos a importar saldos iniciales, plan de cuentas y padrón de socios en el onboarding. A partir de ahí no necesitás Excel para llevar la cooperadora.</p>
+                </div>
+              </div>
+            </li>
+            <li class="faq-item">
+              <button class="faq-q" aria-expanded="false" aria-controls="faq3">
+                <span>¿Genera la PIA oficial que pide la inspección?</span>
+                <span class="faq-icon" aria-hidden="true"></span>
+              </button>
+              <div class="faq-a" id="faq3" role="region">
+                <div class="faq-a-inner">
+                  <p>Sí. La PIA y los Libros Legales se generan con el formato que exige la normativa de la Provincia de Buenos Aires. La ecuación <em>Saldo Próximo = Banco + Caja Chica</em> se valida en tiempo real al cargar cada comprobante.</p>
+                </div>
+              </div>
+            </li>
+            <li class="faq-item">
+              <button class="faq-q" aria-expanded="false" aria-controls="faq4">
+                <span>¿Qué pasa con mis datos? ¿Son míos?</span>
+                <span class="faq-icon" aria-hidden="true"></span>
+              </button>
+              <div class="faq-a" id="faq4" role="region">
+                <div class="faq-a-inner">
+                  <p>Tus datos son siempre de tu cooperadora. Podés exportarlos cuando quieras en Excel y PDF. Hacemos backup todos los días y trabajamos con cifrado en tránsito y en reposo.</p>
+                </div>
+              </div>
+            </li>
+            <li class="faq-item">
+              <button class="faq-q" aria-expanded="false" aria-controls="faq5">
+                <span>¿Cuánto tarda la implementación?</span>
+                <span class="faq-icon" aria-hidden="true"></span>
+              </button>
+              <div class="faq-a" id="faq5" role="region">
+                <div class="faq-a-inner">
+                  <p>Para una cooperadora chica, una semana. Para una agraria con producción, ventas y contabilidad, entre dos y cuatro. Te acompañamos en cada paso, no te dejamos solo frente a la pantalla.</p>
+                </div>
+              </div>
+            </li>
+            <li class="faq-item">
+              <button class="faq-q" aria-expanded="false" aria-controls="faq6">
+                <span>¿Soporta varias cooperadoras desde el mismo usuario?</span>
+                <span class="faq-icon" aria-hidden="true"></span>
+              </button>
+              <div class="faq-a" id="faq6" role="region">
+                <div class="faq-a-inner">
+                  <p>Sí. Un asesor o consejo escolar puede gestionar varias cooperadoras desde un mismo acceso, sin que los datos se mezclen entre ellas. Cada cooperadora es un espacio aislado.</p>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ============ CTA FINAL ============ -->
+      <section class="cta-final" id="contacto" aria-labelledby="ctaTitulo">
+        <div class="container">
+          <div class="cta-inner reveal">
+            <span class="eyebrow eyebrow-on-dark">Empezá hoy</span>
+            <h2 id="ctaTitulo">Probá Coopa con tu cooperadora.</h2>
+            <p>Te mostramos en una llamada de 30 minutos cómo se ve tu PIA armada sola. Sin compromiso.</p>
+            <div class="cta-actions">
+              <a href="mailto:hola@coopa.com.ar?subject=Quiero%20una%20demo%20de%20Coopa" class="btn btn-on-dark">Pedir demo</a>
+              <a href="#modulos" class="btn btn-ghost-on-dark">Recorrer los módulos</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="site-footer" aria-labelledby="footerTitulo">
+      <div class="container footer-grid">
         <div class="footer-brand">
-          <div class="logo-wrapper">
-            <img class="logo" src="./src/assets/logo.svg" alt="COOPA logo">
-            <span class="logo-text">Coopa</span>
-          </div>
-          <p class="footer-tagline">Porque administrar una cooperadora escolar no debería ser tan difícil.</p>
+          <a href="#" class="brand brand-on-dark" aria-label="Coopa, inicio">
+            <span class="brand-mark" aria-hidden="true">
+              <svg viewBox="0 0 1500 1500" width="36" height="36"><path d="M705.3 1079c-27.9-64.3-69.4-189.5-28.7-323.1 66.9-219.3 329.3-376.5 645-356.1 41.9 267.5-61.4 518.1-256.1 629.9-131.1 75.3-267 66.6-331.4 57.6 65.9-49.9 139.9-114.1 213.8-195.3 114.1-125.4 190.3-249.8 240.7-349-72.4 100.9-159.5 210-263.4 321.5-75 80.5-149.1 151.7-219.9 214.5z" fill="currentColor"/><path d="M621.1 1086c-49.3 14.9-144.1 34.5-238.1-6.6C228.7 1011.9 136.4 807.1 178.2 578.5c198.7-7.8 372.7 88.9 437.6 240.5 43.8 102.1 25.8 200.4 13.8 246.6-30.8-52.3-71.3-111.7-124.3-172.6-81.7-93.9-166-160-234.1-205.3 67.5 61.4 139.7 134.2 212.2 219.6 52.3 61.6 97.9 121.7 137.7 178.7z" fill="currentColor"/></svg>
+            </span>
+            <span class="brand-text">
+              <span class="brand-name">Coopa</span>
+              <span class="brand-tag">Gestión cooperadora</span>
+            </span>
+          </a>
+          <p class="footer-blurb">El SaaS para Asociaciones Cooperadoras Escolares de la Provincia de Buenos Aires.</p>
         </div>
-        <div class="footer-links">
-          <a href="#features">Funcionalidades</a>
-          <a href="#como-funciona">Cómo funciona</a>
-          <a href="#para-quien">Para quién</a>
-          <a href="https://app.coopa.com.ar/" target="_blank">Ir a la App</a>
+
+        <div class="footer-col">
+          <h3 id="footerTitulo">Producto</h3>
+          <ul>
+            <li><a href="#modulos">Módulos</a></li>
+            <li><a href="#como-funciona">Cómo funciona</a></li>
+            <li><a href="#roles">Para cada rol</a></li>
+            <li><a href="#precios">Precios</a></li>
+          </ul>
         </div>
+
+        <div class="footer-col">
+          <h3>Empresa</h3>
+          <ul>
+            <li><a href="#nosotros">Quiénes somos</a></li>
+            <li><a href="#contacto">Pedir demo</a></li>
+            <li><a href="#contacto">Trabajá con nosotros</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>Legal</h3>
+          <ul>
+            <li><a href="#">Términos y condiciones</a></li>
+            <li><a href="#">Política de privacidad</a></li>
+            <li><a href="#">Tratamiento de datos</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>Contacto</h3>
+          <ul>
+            <li><a href="mailto:hola@coopa.com.ar">hola@coopa.com.ar</a></li>
+            <li><a href="tel:+542215555555">+54 221 555-5555</a></li>
+            <li>La Plata, Buenos Aires</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="container footer-base">
+        <small>© <span id="year"></span> Coopa. Hecho con cuidado para las cooperadoras escolares.</small>
+        <small>Cliente piloto: Escuela Agraria Nicanor Ezeyza</small>
       </div>
     </footer>
 
-    <script type="module" src="/src/main.js"></script>
+    <script src="main.js" defer></script>
   </body>
 </html>
