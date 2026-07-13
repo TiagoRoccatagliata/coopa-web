@@ -220,7 +220,7 @@
           throw new Error('bad status');
         }
       } catch (err) {
-        feedback.textContent = 'No pudimos enviar el mensaje. Probá de nuevo o escribinos a tiago.roccatagliata@agrosistemas.com.ar';
+        feedback.textContent = 'No pudimos enviar el mensaje. Probá de nuevo o escribinos a informe@coopa.com.ar';
         feedback.classList.add('is-error');
       } finally {
         submitBtn.disabled = false;
