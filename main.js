@@ -92,6 +92,34 @@
     });
   });
 
+  // ---------- Billing toggle (planes) ----------
+  // Cambia los precios entre mensual y anual leyendo data-mensual / data-anual.
+  // El descuento anual (10%) ya está pre-calculado en esos atributos en index.html.
+  const planes = document.getElementById('planes');
+  if (planes) {
+    const billingOpts = Array.from(planes.querySelectorAll('.billing-opt'));
+    const priceNums = Array.from(planes.querySelectorAll('.price-num'));
+    const annualNotes = Array.from(planes.querySelectorAll('.price-annual-note'));
+
+    const setBilling = (mode) => {
+      planes.setAttribute('data-billing', mode);
+      billingOpts.forEach((opt) => {
+        const active = opt.dataset.billingOpt === mode;
+        opt.classList.toggle('is-active', active);
+        opt.setAttribute('aria-pressed', String(active));
+      });
+      priceNums.forEach((num) => {
+        const val = num.dataset[mode]; // dataset.mensual / dataset.anual
+        if (val) num.textContent = val;
+      });
+      annualNotes.forEach((note) => { note.hidden = mode !== 'anual'; });
+    };
+
+    billingOpts.forEach((opt) => {
+      opt.addEventListener('click', () => setBilling(opt.dataset.billingOpt));
+    });
+  }
+
   // ---------- Modules carousel ----------
   const carousel = document.getElementById('modulesCarousel');
   if (carousel) {
