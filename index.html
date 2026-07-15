@@ -5,9 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="theme-color" content="#5B7052" />
     <meta name="description" content="Coopa centraliza comprobantes, tesorería, ventas y reportes oficiales para Cooperadoras Escolares de la Provincia de Buenos Aires. La PIA y los Libros se generan solos." />
-    <meta property="og:title" content="Coopa" />
-    <meta property="og:description" content="Tu cooperadora, ordenada de una vez. Comprobantes, tesorería y reportes oficiales en una sola plataforma." />
+    <meta property="og:title" content="Coopa — Tu cooperadora, ordenada de una vez" />
+    <meta property="og:description" content="El software para Cooperadoras Escolares de la Provincia de Buenos Aires. Comprobantes, tesorería, PIA y Libros Legales en una sola plataforma. Agendá una demo gratis." />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://coopa.com.ar/" />
+    <meta property="og:locale" content="es_AR" />
+    <meta property="og:image" content="https://coopa.com.ar/og-image.png" />
+    <meta property="og:image:width" content="1425" />
+    <meta property="og:image:height" content="775" />
+    <meta property="og:image:alt" content="Panel de Coopa mostrando comprobantes y tesorería de una cooperadora escolar" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Coopa — Tu cooperadora, ordenada de una vez" />
+    <meta name="twitter:description" content="Comprobantes, tesorería, PIA y Libros Legales para Cooperadoras Escolares de la Provincia de Buenos Aires." />
+    <meta name="twitter:image" content="https://coopa.com.ar/og-image.png" />
     <link rel="icon" type="image/svg+xml" href="src/assets/logo.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -41,8 +51,8 @@
           <a href="#roles">Para cada rol</a>
           <a href="#planes">Planes</a>
           <a href="#faq">Preguntas</a>
-          <a href="#contacto">Contacto</a>
-          <a href="https://app.coopa.com.ar" class="btn btn-primary btn-sm nav-cta" target="_blank" rel="noopener">Ir a APP</a>
+          <a href="https://app.coopa.com.ar" class="nav-login" target="_blank" rel="noopener">Ingresar</a>
+          <a href="#contacto" class="btn btn-primary btn-sm nav-cta">Agendá tu demo</a>
         </nav>
       </div>
     </header>
@@ -59,20 +69,33 @@
               Cargás una vez. La PIA, los Libros y la rendición se arman solas.
             </p>
             <div class="hero-actions">
-              <a href="https://app.coopa.com.ar" class="btn btn-primary" target="_blank" rel="noopener">Ir a APP</a>
+              <a href="#contacto" class="btn btn-primary">Agendá tu demo gratis</a>
               <a href="#como-funciona" class="btn btn-ghost">
                 Ver cómo funciona
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
               </a>
             </div>
+            <ul class="hero-trust">
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+                PIA y Libros en formato oficial PBA
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+                Demo de 30 min, sin compromiso
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+                Te acompañamos en el alta de datos
+              </li>
+            </ul>
           </div>
 
           <!-- Hero media: video real del producto -->
           <div class="hero-media" aria-hidden="true">
             <div class="app-shot app-shot-video reveal">
               <video autoplay muted loop playsinline preload="metadata" poster="src/assets/images/dashboard.png">
-                <source src="src/assets/videos/coopa-demo.mov" type="video/quicktime" />
-                <source src="src/assets/videos/coopa-demo.mov" type="video/mp4" />
+                <source src="src/assets/videos/coopa-demo.mp4" type="video/mp4" />
               </video>
               <span class="media-pill">
                 <span class="media-pill-dot"></span>
@@ -80,6 +103,18 @@
               </span>
             </div>
           </div>
+        </div>
+      </section>
+
+      <!-- ============ PRUEBA SOCIAL ============ -->
+      <section class="proof reveal" aria-label="Quiénes usan Coopa">
+        <div class="container proof-inner">
+          <p class="proof-label">Ya ordena la administración de una cooperadora bonaerense</p>
+          <div class="proof-client">
+            <img src="src/assets/clientes/nicanor-ezeyza.jpg" alt="Escudo de la Cooperadora Nicanor Ezeyza, Coronel Vidal" class="proof-logo" width="72" height="72" loading="lazy" />
+            <span class="proof-name">Cooperadora Nicanor Ezeyza · Coronel Vidal</span>
+          </div>
+          <p class="proof-note">En producción, no en piloto: PIA, tesorería y libros legales reales, mes a mes.</p>
         </div>
       </section>
 
@@ -92,19 +127,19 @@
             <p class="section-sub">Pensado para que la tesorera de la cooperadora se sienta en casa, sin saber contabilidad.</p>
           </header>
 
-          <ol class="steps">
-            <li class="step reveal">
-              <span class="step-num">01</span>
+          <ol class="steps reveal">
+            <li class="step">
+              <span class="step-node" aria-hidden="true">1</span>
               <h3>Cargás un comprobante con su categoría PIA</h3>
               <p>Una factura, un recibo, un ticket. Coopa ya tiene el plan PIA cargado y te sugiere la categoría correcta.</p>
             </li>
-            <li class="step reveal">
-              <span class="step-num">02</span>
+            <li class="step">
+              <span class="step-node" aria-hidden="true">2</span>
               <h3>Coopa actualiza caja, banco, cuentas y stock</h3>
               <p>El mismo movimiento impacta en tesorería, en la cuenta corriente del proveedor y en el stock si corresponde.</p>
             </li>
-            <li class="step reveal">
-              <span class="step-num">03</span>
+            <li class="step">
+              <span class="step-node" aria-hidden="true">3</span>
               <h3>La PIA, los Libros y los reportes se generan solos</h3>
               <p>A fin de mes no armás nada: descargás. Listo para llevar a la inspección o a la comisión directiva.</p>
             </li>
@@ -577,12 +612,12 @@
             <ul class="contact-meta">
               <li>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
-                <a href="mailto:informe@coopa.com.ar">informe@coopa.com.ar</a>
+                <a href="mailto:contacto@coopa.com.ar">contacto@coopa.com.ar</a>
               </li>
             </ul>
           </div>
 
-          <form class="contact-form reveal" id="contactForm" action="https://formsubmit.co/tiagoroccatagliata@gmail.com" method="POST" novalidate>
+          <form class="contact-form reveal" id="contactForm" action="https://formsubmit.co/contacto@coopa.com.ar" method="POST" novalidate>
             <input type="hidden" name="_subject" value="Nuevo contacto desde coopa.com.ar" />
             <input type="hidden" name="_template" value="table" />
             <input type="hidden" name="_captcha" value="false" />
@@ -634,6 +669,24 @@
             <span class="brand-name">Coopa</span>
           </a>
           <p class="footer-blurb">El SaaS para Asociaciones Cooperadoras Escolares de la Provincia de Buenos Aires.</p>
+          <!-- COMPLETAR URLs de redes cuando existan las cuentas (reemplazar los href="#") -->
+          <ul class="footer-social" aria-label="Redes sociales de Coopa">
+            <li>
+              <a href="#" aria-label="Coopa en LinkedIn" rel="noopener">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.8 0 0 .78 0 1.74v20.52C0 23.22.8 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.74V1.74C24 .78 23.2 0 22.22 0z"/></svg>
+              </a>
+            </li>
+            <li>
+              <a href="#" aria-label="Coopa en Facebook" rel="noopener">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07c0 6 3.9 10.98 9.1 11.85l.02-8.38H6.28v-3.47H9.1V9.4c0-2.8 1.65-4.34 4.2-4.34 1.22 0 2.5.22 2.5.22v2.75h-1.4c-1.38 0-1.82.86-1.82 1.75v2.1h3.1l-.5 3.47h-2.6l.02 8.38C20.1 23.05 24 18.07 24 12.07z"/></svg>
+              </a>
+            </li>
+            <li>
+              <a href="#" aria-label="Coopa en Instagram" rel="noopener">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zM12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.3-1.46.72-2.12 1.38A5.86 5.86 0 0 0 .63 4.14c-.3.76-.5 1.64-.56 2.9C.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.3.79.72 1.46 1.38 2.12.66.66 1.33 1.08 2.12 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56a5.86 5.86 0 0 0 2.12-1.38 5.86 5.86 0 0 0 1.38-2.12c.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.86 5.86 0 0 0-1.38-2.12A5.86 5.86 0 0 0 19.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32zm0 10.16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm7.85-10.4a1.44 1.44 0 1 1-2.88 0 1.44 1.44 0 0 1 2.88 0z"/></svg>
+              </a>
+            </li>
+          </ul>
         </div>
 
         <div class="footer-col">
@@ -650,7 +703,7 @@
         <div class="footer-col">
           <h3>Empresa</h3>
           <ul>
-            <li><a href="https://app.coopa.com.ar" target="_blank" rel="noopener">Ir a APP</a></li>
+            <li><a href="https://app.coopa.com.ar" target="_blank" rel="noopener">Ingresar</a></li>
             <li><a href="#contacto">Contactanos</a></li>
           </ul>
         </div>
@@ -667,7 +720,7 @@
         <div class="footer-col">
           <h3>Contacto</h3>
           <ul>
-            <li><a href="mailto:informe@coopa.com.ar">informe@coopa.com.ar</a></li>
+            <li><a href="mailto:contacto@coopa.com.ar">contacto@coopa.com.ar</a></li>
           </ul>
         </div>
       </div>

@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Foto original sin optimizar (se usa la versión optimizada escuela-ezeyza.jpg)
+src/assets/images/escuela.jpeg
