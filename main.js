@@ -184,48 +184,88 @@
   }
 
   // ---------- Contact form ----------
+  // El action del <form> apunta al endpoint clásico de FormSubmit, que solo se
+  // usa como fallback sin JS (responde 302 hacia _next). Desde JS posteamos al
+  // endpoint /ajax/, que devuelve JSON con CORS y NO redirige: seguir el 302
+  // hacia coopa.com.ar hacía fallar la verificación CORS del fetch y mostraba
+  // un error falso, aunque el mail ya se había enviado.
   const form = document.getElementById('contactForm');
   if (form) {
     const feedback = form.querySelector('#formFeedback');
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const ajaxAction = form.action.replace(
+      /^(https?:\/\/formsubmit\.co)\/(?!ajax\/)/,
+      '$1/ajax/'
+    );
+    let sending = false;
+    let sent = false;
+
+    const setFeedback = (msg, isError) => {
+      feedback.textContent = msg;
+      feedback.classList.toggle('is-error', !!isError);
+    };
+
     form.addEventListener('submit', async (e) => {
-      // Honeypot check
+      e.preventDefault();
+
+      // Honeypot: bot detectado, no hacemos nada.
       const hp = form.querySelector('input[name="_honey"]');
-      if (hp && hp.value) { e.preventDefault(); return; }
+      if (hp && hp.value) return;
+
+      // Guardas anti-duplicado: ni doble click ni reenvío tras un envío OK.
+      if (sending || sent) return;
 
       if (!form.checkValidity()) {
-        e.preventDefault();
-        feedback.textContent = 'Revisá los campos marcados, por favor.';
-        feedback.classList.add('is-error');
+        setFeedback('Revisá los campos marcados, por favor.', true);
         form.reportValidity();
         return;
       }
 
-      // Submit via fetch so we can stay on the page
-      e.preventDefault();
-      feedback.classList.remove('is-error');
-      feedback.textContent = 'Enviando…';
-      const submitBtn = form.querySelector('button[type="submit"]');
+      sending = true;
       submitBtn.disabled = true;
+      setFeedback('Enviando…', false);
+
+      // _next solo aplica al fallback sin JS; enviarlo por ajax provocaría el redirect.
+      const payload = {};
+      new FormData(form).forEach((value, key) => {
+        if (key === '_next' || key === '_honey') return;
+        payload[key] = value;
+      });
 
       try {
-        const res = await fetch(form.action, {
+        const res = await fetch(ajaxAction, {
           method: 'POST',
-          body: new FormData(form),
-          headers: { Accept: 'application/json' },
+          body: JSON.stringify(payload),
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         });
-        if (res.ok) {
-          form.reset();
-          feedback.textContent = '¡Gracias! Te respondemos en menos de 24 hs.';
-        } else {
-          throw new Error('bad status');
-        }
+
+        // FormSubmit devuelve {"success":"true"} (success viene como string).
+        const data = await res.json().catch(() => null);
+        const ok = res.ok && (!data || String(data.success) === 'true');
+        if (!ok) throw new Error(data && data.message ? data.message : `HTTP ${res.status}`);
+
+        sent = true;
+        form.reset();
+        setFeedback('¡Gracias! Te respondemos en menos de 24 hs.', false);
+        submitBtn.textContent = 'Mensaje enviado ✓';
       } catch (err) {
-        feedback.textContent = 'No pudimos enviar el mensaje. Probá de nuevo o escribinos a informe@coopa.com.ar';
-        feedback.classList.add('is-error');
-      } finally {
+        setFeedback(
+          'No pudimos enviar el mensaje. Probá de nuevo o escribinos a contacto@coopa.com.ar',
+          true
+        );
         submitBtn.disabled = false;
+      } finally {
+        sending = false;
       }
     });
+
+    // Fallback sin JS: FormSubmit redirige a /?ok=1. Confirmamos el envío igual.
+    if (new URLSearchParams(location.search).get('ok') === '1') {
+      sent = true;
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Mensaje enviado ✓';
+      setFeedback('¡Gracias! Te respondemos en menos de 24 hs.', false);
+    }
   }
 
   // ---------- Cookie consent ----------
